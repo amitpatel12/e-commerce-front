@@ -18,7 +18,7 @@ const Signup = () => {
           localStorage.setItem('users', JSON.stringify(users));
           setEmail('')
           setPassword('');
-          navigate('/')
+          navigate('/log-in')
         } else {
           alert('User already exists');
         }
