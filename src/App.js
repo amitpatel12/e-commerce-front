@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, useSearchParams, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
@@ -13,11 +13,22 @@ import Login from "./pages/Login";
 const App = () => {
   const [login, setLogin] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
+  // the header and footer part show after the login only
   useEffect(()=>{
     setLogin(JSON.parse(localStorage.getItem('login')))
-
   },[location.pathname])
+
+
+  
+  // check verify user
+  useEffect(()=> {
+    const login =  JSON.parse(localStorage.getItem('login'))
+    if(!login){
+      navigate('/log-in')
+    }
+  },[])
  
   return (
     <div className="overflow-hidden">

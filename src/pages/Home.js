@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import Product from '../components/Product'
 import Hero from '../components/Hero'
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   // get products from product context
   const { products } = useContext(ProductContext);
-
-
+  
   
 
   return (
